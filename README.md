@@ -26,6 +26,9 @@ To access demo api:
 ```
 http://localhost:8080/api/values
 ```
+## A Sample Jaeger UI Screenshot
+![JaegerUIScreenshot](https://user-images.githubusercontent.com/22537533/56534840-13f9af00-6520-11e9-9b43-90954814fd8b.PNG)
+
 ## Sample C# Code
 The follow C# code snippet illustrates how to configure OpenTracing client with Remote Jaeger instances:
 ```
