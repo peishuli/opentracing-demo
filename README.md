@@ -9,7 +9,7 @@ $ docker build -t peishu/demoapi:v1 DemoApi/DemoApi
 $ docker push peisu/demoapi:v1
 ```
 
-## Install Jaeger (All-in-One)
+## Install Jaeger (All-in-One) in Kubernetes
 ```
 $ kubectl apply -f jagear-all-in-one-k8s.yaml
 ```
