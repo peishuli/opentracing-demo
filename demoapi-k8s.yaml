@@ -1,0 +1,48 @@
+---
+# Source: DemoApi/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapi
+  labels:
+    app: demoapi
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+    name: dotnetcore
+  selector:
+    app: demoapi
+---
+# Source: DemoApi/templates/deployment.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: demoapi
+  labels:
+    app: demoapi
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demoapi
+    spec:
+      containers:
+      - name: demoapi
+        image: peishu/demoapi:v1
+        env:
+        - name: JAEGER_SERVICE_NAME
+          value: "DemoApi"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+            limits:
+              cpu: 1
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
